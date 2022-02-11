@@ -11,22 +11,13 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      with:
-        path: src
-      
-    - name: Checkout codeql
-      uses: actions/checkout@v2
-      with:
-        repo: github/codeql
-        path: codeql
         
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
         languages: javascript
-        packs: +./codeql/codeql/javascript-experimental-atm-model
+        packs: +codeql/javascript-experimental-atm-queries
         queries: security-extended
-        source-root: src
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
