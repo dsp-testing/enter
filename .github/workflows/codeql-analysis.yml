@@ -16,6 +16,8 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: javascript
+        packs: +codeql/javascript-experimental-atm-model
+        queries: security-extended
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
